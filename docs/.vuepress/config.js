@@ -1,6 +1,6 @@
 module.exports = {
   title: "test-ui",
-  base: "/lime-ui/",
+  base: "/test-ui/",
   description: "这是个练手项目",
   port: 8083,
   themeConfig: {
