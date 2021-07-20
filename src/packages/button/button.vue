@@ -12,9 +12,15 @@ export default {
   props: {
     type: {
       validator (value) {
-          return oneOf(value, ['default', 'primary', 'info', 'success', 'warning', 'error']);
+          return oneOf(value, ['default', 'primary', 'dashed', 'text', 'info', 'success', 'warning', 'error']);
       },
       type: String,
+      default: 'default'
+    },
+    size: {
+      validator (value) {
+          return oneOf(value, ['small', 'large', 'default']);
+      },
       default: 'default'
     }
   }

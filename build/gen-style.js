@@ -15,5 +15,18 @@ function buildCss(cb) {
     .pipe(gulp.dest("../lib/styles"));
   cb();
 }
+function buildSeperateCss(cb) {
+  Object.keys(components).forEach((compName) => {
+    gulp
+      .src(`../src/styles/${compName}.scss`)
+      .pipe(sass())
+      .pipe(autoprefixer())
+      .pipe(cleanCSS())
+      .pipe(rename(`${compName}.css`))
+      .pipe(gulp.dest("../lib/styles"));
+  });
 
-exports.default = gulp.series(buildCss);
+  cb();
+}
+
+exports.default = gulp.series(buildCss, buildSeperateCss);
